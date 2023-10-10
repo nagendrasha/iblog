@@ -33,7 +33,7 @@
         @foreach ($data as $item)
         <div class="col-lg-3 col-sm-3 card">
             <div class="card-body p_card">
-                <h4 class="p_name">{{ $item->p_name }}</h4>
+                <a href="detail/{{$item->id}}"<h4 class="p_name">{{ $item->p_name }}</h4></a>
                 <p class="p_price"> <span><sup style="font-size: 0.8rem;">₹</sup></span>{{ $item->p_price }} </p>
                 <img src="images/{{ $item->p_image }}" alt="" width="80px"><br><br>
                 <span>Free Delivery in 2 Days</span>
@@ -44,7 +44,7 @@
     </div>
 </div>
 {{-- ads section  --}}
-<div class="container m-3 text-center">
+<div class="container d-flex justify-content-evenly mt-2 mb-2">
     <div class="row text-center">
         <div class="col-lg-6">
             <img src="/images/watch_ad.jpg" alt="" width="100%">

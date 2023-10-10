@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,15 @@ Route::get('index',[ProductController::class ,'readData']);
 Route::view('update','updateview');
 Route::get('updatedelete',[ProductController::class ,'updateordelete']);
 Route::get('updatedata',[ProductController::class , 'update']);
+Route::get('search',[ProductController::class, 'search']);
+
+
+// Login SignUp
+
+Route::get('/login',function(){
+    return view('login');
+});
+Route::post('/login',[UserController::class,'login']);
+
+
 

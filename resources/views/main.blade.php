@@ -26,8 +26,8 @@
                     <a class="nav-link" href="/shop"><i class="bi bi-shop-window"></i> Shop</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form  action="/search" class="d-flex" role="search">
+                  <input class="form-control w-100 me-2" name="query" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
               </div>

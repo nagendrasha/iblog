@@ -47,8 +47,8 @@ class ProductController extends Controller
     public function detail($id){
         $data = product::find($id);
         return view('details',['products'=>$data]);
+        // echo $data;
     }
-
     function readData(){
         $p_data = product::all();
         return view('insert',['data'=>$p_data]);
@@ -89,5 +89,13 @@ class ProductController extends Controller
         $prod->save();
 
         return redirect('/index');
+    }
+
+    // search function
+    function search(Request $req){
+        $data= product::
+        where('p_name','like','%'.$req->input('query').'%')
+        ->get();
+        return view('search',['products'=>$data]);
     }
 }
