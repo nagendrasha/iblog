@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -20,26 +19,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Products Routes
-Route::view('shop','shop');
-Route::get('detail/{id}',[ProductController::class, 'detail']);
-Route::get('shop',[ProductController::class, 'shop']);
-Route::view('index', 'insert' );
-Route::get('/',[ProductController::class, 'product_list']);
-Route::post('insertData',[ProductController::class , 'insert']);
-Route::get('index',[ProductController::class ,'readData']);
-Route::view('update','updateview');
-Route::get('updatedelete',[ProductController::class ,'updateordelete']);
-Route::get('updatedata',[ProductController::class , 'update']);
-Route::get('search',[ProductController::class, 'search']);
-
-
-// Login SignUp
-
-Route::get('/login',function(){
-    return view('login');
-});
-Route::post('/login',[UserController::class,'login']);
-
-
-
+Route::group(['middleware'=>"web"],function(){
+    Route::get('/sidebar',[UserController::class,'sidebar']);
+    Route::get('/login',function(){
+        return view('login');
+    });
+    Route::get('/dashboard',[UserController::class,'dashboard']);
+    Route::post('/login',[UserController::class,'login']);
+   });

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Session;
 
 class UserAuth
 {
@@ -15,9 +16,14 @@ class UserAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        $path = $request->path();
         if($request->path()=="login" && $request->session()->has('user'))
         {
-            return redirect('/shop');
+            return redirect('/dashboard');
+        }
+        else if(($path!='login' && !Session::get('user')) ){
+            return redirect('login');
         }
         return $next($request);
     }
