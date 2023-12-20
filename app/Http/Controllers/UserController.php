@@ -27,6 +27,6 @@ class UserController extends Controller
         // print_r($req);
         // die;
         $data = assdt_sidebar::all();    
-        return view('dashboard',['assdt_sidebars'=>$data]);
+        return view('admin.dashboard',['assdt_sidebars'=>$data]);
     }
 }
